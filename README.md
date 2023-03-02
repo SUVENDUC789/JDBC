@@ -84,6 +84,8 @@ import java.util.Scanner;
 public class Insert {
 
 	public static void main(String[] args) {
+		
+		
 
 		String sql = "insert into emp values(?,?)";
 		Scanner sc = new Scanner(System.in);
@@ -91,9 +93,20 @@ public class Insert {
 			
 			PreparedStatement ps = DbCon.connect().prepareStatement(sql);
 			
-			for(int i=0;i<1;i++) {
-				ps.setString(1, "412");
-				ps.setString(2, "Suvendu");
+			System.out.print("Enter number of record you want to inserted : ");
+			int n = sc.nextInt();
+			sc.nextLine();
+			
+			for(int i=0;i<n;i++) {
+				
+				System.out.printf("Enter roll [%d] : ",i+1);
+				String roll = sc.nextLine();
+				
+				System.out.printf("Enter Name [%d] : ",i+1);
+				String name= sc.nextLine();
+				
+				ps.setString(1, roll);
+				ps.setString(2, name);
 				
 				int count = ps.executeUpdate();
 				if(count>0) {
@@ -108,9 +121,12 @@ public class Insert {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		System.out.println("Insertion operation completed successfull ");
 
 	}
 
 }
+
 
 ```
