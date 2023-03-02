@@ -72,3 +72,45 @@ public class Dbcon {
 }
 
 ```
+
+# Insert
+
+```java
+package database;
+
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class Insert {
+
+	public static void main(String[] args) {
+
+		String sql = "insert into emp values(?,?)";
+		Scanner sc = new Scanner(System.in);
+		try {
+			
+			PreparedStatement ps = DbCon.connect().prepareStatement(sql);
+			
+			for(int i=0;i<1;i++) {
+				ps.setString(1, "412");
+				ps.setString(2, "Suvendu");
+				
+				int count = ps.executeUpdate();
+				if(count>0) {
+					System.out.println(count+" Record inserted...");
+				}else {
+					System.out.println("No record inserted...");
+				}
+				
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
+
+```
