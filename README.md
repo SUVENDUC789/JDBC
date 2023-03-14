@@ -1,6 +1,17 @@
 # JDBC
 ## Connection
 
+```
+1. import ----> Java.sql.*;
+2. load and register driver
+3. create connection
+4. create statement
+5. execute the query
+6. Process The result
+7. close
+
+```
+
 ```java
 package database;
 
