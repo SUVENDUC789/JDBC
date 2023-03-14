@@ -1,6 +1,6 @@
 # JDBC
-## Connection
 
+## Steps :
 ```
 1. import ----> Java.sql.*;
 2. load and register driver
@@ -11,6 +11,14 @@
 7. close
 
 ```
+### Connect Mysql
+```
+String DRIVER="com.mysql.cj.jdbc.Driver";
+String URL="jdbc:mysql://localhost:3306/test";
+String USER = "root";
+String PASSWD = "";
+```
+## Connection :
 
 ```java
 package database;

@@ -8,7 +8,7 @@ public class ShowData {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String sql = "select * from emp";
+		String sql = "select * from friend";
 		try {
 			
 			Statement smt = Connectivity.connect().createStatement();
@@ -19,10 +19,13 @@ public class ShowData {
 				String name=rs.getString(2);
 				System.out.println(roll+"\t"+name);
 			}
+			System.out.println("End !!");
 		}
 		catch(Exception e) {
 			System.out.println(e);
 		}
+		
+//		System.out.println("End !!");
 
 	}
 
