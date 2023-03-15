@@ -27,11 +27,14 @@ public class MyDatabaseConnection {
 		
 		ResultSet rs = smt.executeQuery(sql);
 		
-		while(rs.next()) {
-			String roll=rs.getString(1);
-			String name=rs.getString(2);
-			System.out.println(roll+"\t"+name);
-		}
+		rs.next();
+		System.out.println(rs.getString("name"));
+				
+//		while(rs.next()) {
+//			String roll=rs.getString(1);
+//			String name=rs.getString(2);
+//			System.out.println(roll+"\t"+name);
+//		}
 		
 //		System.out.println("Table create successfull !");
 		
