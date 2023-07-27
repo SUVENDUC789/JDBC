@@ -1,5 +1,42 @@
 # JDBC
 
+### Best Design Pattern
+
+```java
+package com.fact;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class MyConnection {
+
+	private Connection con;
+	private PreparedStatement ps;
+	
+	public MyConnection() throws Exception {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		this.con = DriverManager.getConnection("jdbc:mysql://localhost:3306/crud", "root", "");
+	}
+	public Object runQuery(String sql) throws Exception {
+		if (sql.startsWith("select")) {
+			return this.fetchData(sql);
+		}else {
+			return this.runMysqlQuery(sql);
+		}
+	}
+	private int runMysqlQuery(String sql) throws Exception {
+		ps = this.con.prepareStatement(sql);
+		return ps.executeUpdate();
+	}
+	private ResultSet fetchData(String sql) throws Exception {
+		ps = this.con.prepareStatement(sql);
+		return ps.executeQuery();
+	}
+}
+```
+
 ## Steps :
 ```
 1. import ----> Java.sql.*;
